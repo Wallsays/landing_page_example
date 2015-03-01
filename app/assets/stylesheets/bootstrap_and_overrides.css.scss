@@ -1,2 +1,9 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+#flasher {
+  position: absolute; 
+  z-index: 99; 
+  margin-top: 27px; 
+  padding: 8px 20px 8px 20px;
+}

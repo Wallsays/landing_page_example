@@ -4,14 +4,17 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use postgresql as the database for Active Record
-gem 'pg'
+gem 'pg', '~> 0.18.1'
 
 # Use better templating engine
 gem 'haml-rails', "~> 0.8"
 
 gem 'bootstrap-sass', '~> 3.3.3'
-gem 'autoprefixer-rails'
+gem 'autoprefixer-rails', '~> 5.1.7'
 gem 'font-awesome-sass', '~> 4.3.0'
+
+gem 'devise', '~> 3.4.1'
+gem 'cancan', '~> 1.6.10'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
