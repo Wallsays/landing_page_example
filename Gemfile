@@ -16,6 +16,8 @@ gem 'font-awesome-sass', '~> 4.3.0'
 gem 'devise', '~> 3.4.1'
 gem 'cancan', '~> 1.6.10'
 
+gem 'simple_form', '~> 3.1.0'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets

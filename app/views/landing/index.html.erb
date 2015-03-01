@@ -174,3 +174,33 @@
       </footer>
 
     </div><!-- /.container -->
+
+<div id="new_order" style="display:none;">
+  <%= simple_form_for Order.new do |f| %>
+    <%= f.input :email %>
+    <%= f.input :short_name %>
+    <%= f.input :city %>
+    <%= f.input :phone %>
+    <%= f.input :message %>
+    <%= f.button :submit %>
+  <% end %>
+</div>
+
+<script type="text/javascript">
+$(window).load(function() {
+  // var hideTheModal = $.cookie('hideTheModal');
+  //   // if the cookie hasn't been set...
+  //   if(hideTheModal == null){
+  //       // delay by 7 seconds
+  //       setTimeout(function(){
+  //           // make the modal appear
+  //           $('#new_order').modal();
+  //       }, 7000);
+  //       // when the "Close" button is clicked
+  //       $('.close-modal').click(function(){
+  //           // set the cookie
+  //           $.cookie('hideTheModal', 'true', { expires: 30 });
+  //       });
+  //   }
+});
+</script>

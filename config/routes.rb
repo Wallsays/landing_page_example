@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   root 'landing#index'
   get  'dashboard' => 'landing#dashboard'
 
+  resources :orders
+  
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
