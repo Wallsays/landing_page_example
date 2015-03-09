@@ -5,6 +5,5 @@
     - flash.each do |key, value|
       %div{:class => flash_class(key), :id => "flasher"}
         = value
-    = render :partial => "layouts/app_navbar"
+    = render :partial => "layouts/dash_navbar"
     = yield
-    = render :partial => "layouts/footer"

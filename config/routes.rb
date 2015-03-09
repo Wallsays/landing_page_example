@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :orders
 
   constraints UserConstraint.new do
-    get  'dashboard' => 'landing#dashboard'
+    get  'dashboard' => 'dashboard#index'
     match "/split" => Split::Dashboard, :anchor => false, :via => [:get, :post, :delete]
   end
 
