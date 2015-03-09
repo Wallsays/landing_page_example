@@ -1,13 +1,21 @@
 Rails.application.routes.draw do
-  devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   root 'landing#index'
+  
   get  'dashboard' => 'landing#dashboard'
 
+  devise_for :users
+  
   resources :orders
+
+  match "/split" => Split::Dashboard, :anchor => false, :via => [:get, :post], :constraints => lambda { |request|
+    request.env['warden'].authenticated? # are we authenticated?
+    request.env['warden'].authenticate! # authenticate if not already
+    # or even check any other condition such as request.env['warden'].user.is_admin?
+  }
   
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

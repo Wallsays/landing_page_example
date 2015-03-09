@@ -121,6 +121,8 @@ GEM
     execjs (2.4.0)
     factory_girl (4.5.0)
       activesupport (>= 3.0.0)
+    faker (1.4.3)
+      i18n (~> 0.5)
     fastercsv (1.5.5)
     ffi (1.9.6)
     font-awesome-sass (4.3.1)
@@ -349,18 +351,20 @@ DEPENDENCIES
   autoprefixer-rails (~> 5.1.7)
   awesome_print (~> 1.6.1)
   better_errors (~> 2.1.1)
+  binding_of_caller (~> 0.7.2)
   bootstrap-sass (~> 3.3.3)
   brakeman (~> 3.0.1)
   bullet (~> 4.14.4)
   byebug
   cancan (~> 1.6.10)
-  capybara
+  capybara (~> 2.4.4)
   coffee-rails (~> 4.1.0)
-  database_cleaner
+  database_cleaner (~> 1.4.0)
   devise (~> 3.4.1)
   factory_girl (~> 4.5.0)
+  faker
   font-awesome-sass (~> 4.3.0)
-  guard-rspec
+  guard-rspec (~> 4.5.0)
   haml-rails (~> 0.8)
   jbuilder (~> 2.0)
   jquery-rails
