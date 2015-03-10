@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
-ruby '2.0.0'
+# ruby '2.0.0'
+# Heroku will use ruby 2.0.0 by default
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
@@ -54,11 +55,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Unicorn as the app server
 # gem 'unicorn'
 
-# Tiny, fast & funny HTTP server
-# gem 'thin'
-# A ruby web server built for concurrency
-gem 'puma'
-
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -109,5 +105,11 @@ group :test do
   # Strategies for cleaning databases in Ruby. Can be used to ensure a clean state for testing.
   gem 'database_cleaner', '~> 1.4.0'
 end
+
+
+# Tiny, fast & funny HTTP server
+# gem 'thin'
+# A ruby web server built for concurrency
+gem 'puma'
 
 
