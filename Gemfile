@@ -1,10 +1,13 @@
 source 'https://rubygems.org'
-
+ruby '2.1.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18.1'
+
+# Heroku all platform features
+gem 'rails_12factor', group: :production
 
 # Use better templating engine
 gem 'haml-rails', "~> 0.8"
@@ -52,7 +55,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'unicorn'
 
 # Tiny, fast & funny HTTP server
-gem 'thin'
+# gem 'thin'
+# A ruby web server built for concurrency
+gem 'puma'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
