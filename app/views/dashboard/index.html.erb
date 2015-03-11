@@ -41,7 +41,7 @@
             </tr>
           </thead>
           <tbody>
-          <% Order.all.each do |ev| %>
+          <% Order.all.order(created_at: :desc).each do |ev| %>
             <tr>
               <td><%= ev.id %></td> 
               <td><%= ev.email %></td>
@@ -49,7 +49,7 @@
               <td><%= ev.city %></td>
               <td><%= ev.phone %></td>
               <td style='max-width:300px'><%= ev.message %></td>
-              <td><%= ev.created_at.strftime("%A, %d %b %Y %H:%M %z") %></td>
+              <td><%= ev.created_at.strftime("%A, %d %b %Y %H:%M %:z") %></td>
             </tr>
           <% end %>
           </tbody>
@@ -70,7 +70,7 @@
             </tr>
           </thead>
           <tbody>
-          <% Ahoy::Event.where(user_id:nil).each do |ev| %>
+          <% Ahoy::Event.where(user_id:nil).order(time: :desc).each do |ev| %>
             <tr>
               <!-- <td><%#= ev.id %></td> --> 
               <!-- <td><%#= ev.visit_id %></td> -->
@@ -78,7 +78,7 @@
               <!-- <td><%#= ev.name %></td> -->
               <td><%= ev.properties['action'] %></td>
               <td><%= ev.properties['controller'] %></td>
-              <td><%= ev.time.strftime("%A, %d %b %Y %H:%M %z") %></td>
+              <td><%= ev.time.strftime("%A, %d %b %Y %H:%M %:z") %></td>
             </tr>
           <% end %>
           </tbody>
