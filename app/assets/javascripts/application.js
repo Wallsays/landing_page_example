@@ -17,4 +17,6 @@
 //= require formValidation.min
 //= require formValidation_ru_RU
 //= require bootstrapFormValidation.min
+//= require jquery.dataTables.min
+//= require dataTables.bootstrap.min
 //= require_tree .

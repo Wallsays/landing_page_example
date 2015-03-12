@@ -9,7 +9,7 @@ class OrdersController < ApplicationController
         format.html { redirect_to root_path, notice: 'Order was successfully created.' }
         # format.json { render :show, status: :created, location: @order }
       else
-        format.html { redirect_to root_path, :flash => { :error => "Order wasn't created. #{@order.errors}" } }
+        format.html { redirect_to root_path, :flash => { :error => "Order wasn't created" } }
         # format.json { render json: @order.errors, status: :unprocessable_entity }
       end
     end

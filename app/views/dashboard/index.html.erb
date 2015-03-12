@@ -44,7 +44,7 @@
 
       <h2 class="sub-header">Orders</h2>
       <div class="table-responsive">
-        <table class="table table-striped">
+        <table id="orders_table" class="table table-striped">
           <thead>
             <tr>
               <th>#</th>
@@ -57,11 +57,11 @@
             </tr>
           </thead>
           <tbody>
-          <% Order.all.order(created_at: :desc).each do |ev| %>
+          <% Order.all.each do |ev| %>
             <tr>
               <td><%= ev.id %></td> 
               <td><%= ev.email %></td>
-              <td><%= ev.short_name %></td>
+              <td style='min-width:100px'><%= ev.short_name %></td>
               <td><%= ev.city %></td>
               <td><%= ev.phone %></td>
               <td style='max-width:300px'><%= ev.message %></td>
@@ -74,7 +74,7 @@
 
       <h2 class="sub-header">Events</h2>
       <div class="table-responsive">
-        <table class="table table-striped">
+        <table id="events_table" class="table table-striped">
           <thead>
             <tr>
               <!-- <th>#</th> -->
@@ -86,7 +86,7 @@
             </tr>
           </thead>
           <tbody>
-          <% @not_admin_events.order(time: :desc).each do |ev| %>
+          <% @not_admin_events.each do |ev| %>
             <tr>
               <!-- <td><%#= ev.id %></td> --> 
               <!-- <td><%#= ev.visit_id %></td> -->
@@ -104,4 +104,15 @@
   </div>
 </div>
 
-
+<script type="text/javascript">
+$(document).ready( function () {
+    $('#orders_table').DataTable({
+      "iDisplayLength": 10,
+      "order": [[ 6, "desc" ]]
+    });
+    $('#events_table').DataTable({
+      "iDisplayLength": 25,
+      "order": [[ 2, "desc" ]]
+    });
+});
+</script>
