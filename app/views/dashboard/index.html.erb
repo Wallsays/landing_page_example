@@ -19,23 +19,23 @@
           <span class="text-muted">Something else</span>
         </div> -->
         <div class="col-xs-12 col-sm-2 placeholder">
-          <h2><%= Order.where("created_at::date = ?", Date.today - 1).count %></h2>
+          <h2><%= @orders_today %></h2>
           <span class="text-muted">Orders Today</span>
-          <h2><%= Ahoy::Event.where(user_id:nil, name: "Processed landing#index").where("time::date = ?", Date.today - 1).count %></h2>
+          <h2><%= @land_views_today %></h2>
           <span class="text-muted">Landing Views Today</span>
-          <h2><%= Order.where("created_at::date = ?", Date.today - 1).count.to_f / Ahoy::Event.where(user_id:nil, name: "Processed landing#index").where("time::date = ?", Date.today - 1).count %></h2>
+          <h2><%= (@orders_today.to_f / @land_views_today).round(5) %></h2>
           <span class="text-muted">Conversion Today</span>
         </div>
         <div class="col-xs-12 col-sm-2 placeholder">
-          <h2><%= Order.count %></h2>
+          <h2><%= @orders_total %></h2>
           <span class="text-muted">Orders Total</span>
-          <h2><%= Ahoy::Event.where(user_id:nil, name: "Processed landing#index").count %></h2>
+          <h2><%= @land_views_total %></h2>
           <span class="text-muted">Landing Views Total</span>
-          <h2><%= (Order.count.to_f / Ahoy::Event.where(user_id:nil, name: "Processed landing#index").count).round(5) %></h2>
+          <h2><%= (@orders_total.to_f / @land_views_total).round(5) %></h2>
           <span class="text-muted">Conversion Total</span>
         </div>
         <div class="col-xs-12 col-sm-8 placeholder" style="margin-top: -20px;">
-          <%= line_chart [ { name: 'Visits', data: Ahoy::Event.where(user_id:nil).group_by_day(:time, format: "%B %d, %Y").count}, { name: 'Orders', data: Order.group_by_day(:created_at, format: "%B %d, %Y").count} ], discrete: true %>
+          <%= line_chart [ { name: 'Visits', data: @not_admin_land_views.group_by_day(:time, format: "%B %d, %Y").count}, { name: 'Orders', data: Order.group_by_day(:created_at, format: "%B %d, %Y").count} ], discrete: true %>
           <%#= line_chart Ahoy::Event.where(user_id:nil).group_by_day(&:time), discrete: true %>
         </div>
       </div>
@@ -86,7 +86,7 @@
             </tr>
           </thead>
           <tbody>
-          <% Ahoy::Event.where(user_id:nil).order(time: :desc).each do |ev| %>
+          <% @not_admin_events.order(time: :desc).each do |ev| %>
             <tr>
               <!-- <td><%#= ev.id %></td> --> 
               <!-- <td><%#= ev.visit_id %></td> -->
