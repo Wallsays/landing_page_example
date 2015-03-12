@@ -1,3 +1,5 @@
+<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+
 <div class="container-fluid">
   <div class="row">
     <%= render :partial => "sidebar" %>
@@ -6,7 +8,7 @@
       <h1 class="page-header">Dashboard</h1>
 
       <div class="row placeholders">
-        <div class="col-xs-6 col-sm-3 placeholder">
+        <!-- <div class="col-xs-6 col-sm-3 placeholder">
           <img src="/assets/200x200_sky.svg" class="img-responsive" alt="Generic placeholder thumbnail">
           <h4>Label</h4>
           <span class="text-muted">Something else</span>
@@ -15,16 +17,30 @@
           <img src="/assets/200x200_vine.svg" class="img-responsive" alt="Generic placeholder thumbnail">
           <h4>Label</h4>
           <span class="text-muted">Something else</span>
+        </div> -->
+        <div class="col-xs-12 col-sm-2 placeholder">
+          <h2><%= Order.where("created_at::date = ?", Date.today - 1).count %></h2>
+          <span class="text-muted">Orders Today</span>
+          <h2><%= Ahoy::Event.where(user_id:nil, name: "Processed landing#index").where("time::date = ?", Date.today - 1).count %></h2>
+          <span class="text-muted">Landing Views Today</span>
+          <h2><%= Order.where("created_at::date = ?", Date.today - 1).count.to_f / Ahoy::Event.where(user_id:nil, name: "Processed landing#index").where("time::date = ?", Date.today - 1).count %></h2>
+          <span class="text-muted">Conversion Today</span>
         </div>
-        <div class="col-xs-6 col-sm-3 placeholder">
+        <div class="col-xs-12 col-sm-2 placeholder">
           <h2><%= Order.count %></h2>
-          <span class="text-muted">Orders</span>
-        </div>
-        <div class="col-xs-6 col-sm-3 placeholder">
+          <span class="text-muted">Orders Total</span>
           <h2><%= Ahoy::Event.where(user_id:nil, name: "Processed landing#index").count %></h2>
-          <span class="text-muted">Landing Views</span>
+          <span class="text-muted">Landing Views Total</span>
+          <h2><%= (Order.count.to_f / Ahoy::Event.where(user_id:nil, name: "Processed landing#index").count).round(5) %></h2>
+          <span class="text-muted">Conversion Total</span>
+        </div>
+        <div class="col-xs-12 col-sm-8 placeholder" style="margin-top: -20px;">
+          <%= line_chart [ { name: 'Visits', data: Ahoy::Event.where(user_id:nil).group_by_day(:time, format: "%B %d, %Y").count}, { name: 'Orders', data: Order.group_by_day(:created_at, format: "%B %d, %Y").count} ], discrete: true %>
+          <%#= line_chart Ahoy::Event.where(user_id:nil).group_by_day(&:time), discrete: true %>
         </div>
       </div>
+
+      <%#= pie_chart Ahoy::Event.where(user_id:nil).group_by_day(:time, format: "%B %d, %Y").count %>
 
       <h2 class="sub-header">Orders</h2>
       <div class="table-responsive">

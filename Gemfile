@@ -31,6 +31,11 @@ gem 'ahoy_matey', '~> 1.1.1'
 # The Rack Based AB testing framework 
 gem 'split', '~> 1.2.0', :require => 'split/dashboard'
 
+# Create beautiful Javascript charts with one line of Ruby
+gem 'chartkick', '~> 1.3.2'
+# to use the group_by_day method
+gem 'groupdate', '~> 2.4.0'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
