@@ -7,10 +7,10 @@ class OrdersController < ApplicationController
     respond_to do |format|
       if @order.save
         format.html { redirect_to root_path, notice: 'Order was successfully created.' }
-        format.json { render :show, status: :created, location: @order }
+        # format.json { render :show, status: :created, location: @order }
       else
-        format.html { render :new }
-        format.json { render json: @order.errors, status: :unprocessable_entity }
+        format.html { redirect_to root_path, :flash => { :error => "Order wasn't created. #{@order.errors}" } }
+        # format.json { render json: @order.errors, status: :unprocessable_entity }
       end
     end
   end

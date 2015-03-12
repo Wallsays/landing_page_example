@@ -1,3 +1,9 @@
+<%#= javascript_include_tag "/vendor/assets/javascripts/framework/bootstrap.min" %>
+<%#= javascript_include_tag "bootstrap.min" %>
+<%#= javascript_include_tag "bootstrap.min" %>
+<%#= javascript_include_tag "formValidation.min.js", "/vendor/assets/javascripts" %>
+<%#= stylesheet_link_tag    "formValidation.min.css" %>
+
 <!-- Carousel
 ================================================== -->
 <div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin-top: -50px;">
@@ -149,3 +155,54 @@
   <!-- /END THE FEATURETTES -->
 
 </div><!-- /.container -->
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#new_order').formValidation({
+        // locale: 'ru_RU',
+        framework: 'bootstrap',
+        message: 'This value is not valid',
+        icon: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            'order[email]': {
+                validators: {
+                    notEmpty: {
+                        // message: 'The email address is required and can\'t be empty'
+                    },
+                    emailAddress: {
+                        // message: 'The input is not a valid email address'
+                    }
+                }
+            },
+            'order[message]': {
+                validators: {
+                    notEmpty: {
+                        // message: 'The message address is required and can\'t be empty'
+                    },
+                    stringLength: {
+                        min: 6,
+                        // message: 'The message must be more than 6 characters long'
+                    }
+                }
+            },
+            'order[short_name]': {
+                message: 'The short_name is not valid',
+                validators: {
+                    notEmpty: {
+                        message: 'The short_name is required and can\'t be empty'
+                    },
+                    stringLength: {
+                        min: 6,
+                        max: 30,
+                        message: 'The short_name must be more than 6 and less than 30 characters long'
+                    }
+                }
+            }
+        }    
+    });
+});
+</script>
