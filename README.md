@@ -6,9 +6,10 @@ This is a quick setup page with next features:
 * Bootstrap 3
 * A/B testing with split gem
 * Track visits and events by ahoy_matey gem
-* Dashboard page
+* Gzip assets compression via Deflater
+* Pre-Order (or opt-in) form with client-side validations
+* Dashboard page with pretty tables and charts
 * User (admin) authentication with devise
-* Pre-Order (or opt-in) form
 * Ready for Heroku deployment (additionaly need to add redis-to-go plugin)
 * ...many usefull development and testing gems (better_errors, letter_opener, brakeman, rspec, capybara, etc)
 
