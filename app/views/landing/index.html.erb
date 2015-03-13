@@ -62,6 +62,7 @@
 
 <div class="container marketing">
 
+
   <!-- Three columns of text below the carousel -->
   <div class="row">
     <div class="col-lg-4">
@@ -150,14 +151,30 @@
     </div>
   <% end %>
 
-  <hr class="featurette-divider">
+  <hr class="featurette-divider"  style="margin-bottom:30px;">
 
   <!-- /END THE FEATURETTES -->
+    <div class="row">
+      <div class="col-md-3 col-centered">
+        <p>
+          <link class="social_share button_vk" data-type="vk"></link>
+          <link class="social_share button_fb" data-type="fb"></link>
+          <link class="social_share button_gg" data-type="gg"></link>
+          <link class="social_share button_ok" data-type="ok"></link>
+          <link class="social_share button_tw" data-type="tw"></link>
+        </p>
+      </div>
+    </div>
+
+  <hr class="featurette-divider" style="margin-top:30px;">
 
 </div><!-- /.container -->
 
 <script type="text/javascript">
 $(document).ready(function() {
+    $(document).on('click', '.social_share', function(){
+        Share.go(this);
+    });
     $('#new_order').formValidation({
         // locale: 'ru_RU',
         framework: 'bootstrap',

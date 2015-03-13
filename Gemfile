@@ -45,6 +45,9 @@ gem 'split', '~> 1.2.0', :require => 'split/dashboard'
 # Slugging and permalink plugins for ActiveRecord
 # gem 'friendly_id', '~> 5.1.0'
 
+# Helper for add social share feature in your Rails app. Twitter, Facebook, Weibo, Douban, QQ ...
+# gem 'social-share-button', '~> 0.1.8'
+
 # Create beautiful Javascript charts with one line of Ruby
 gem 'chartkick', '~> 1.3.2'
 # to use the group_by_day method
@@ -125,10 +128,15 @@ group :test do
   gem 'database_cleaner', '~> 1.4.0'
 end
 
-
 # Tiny, fast & funny HTTP server
 # gem 'thin'
 # A ruby web server built for concurrency
 gem 'puma'
+
+# Manage Procfile-based applications 
+gem 'foreman', '~> 0.78.0'
+# New Relic is a performance management system, developed by New Relic, Inc 
+gem 'newrelic_rpm', '~>3.10.0.279'
+
 
 

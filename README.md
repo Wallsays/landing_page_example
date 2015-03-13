@@ -8,6 +8,7 @@ This is a quick setup page with next features:
 * Track visits and events by ahoy_matey gem
 * Gzip assets compression via Deflater
 * Pre-Order (or opt-in) form with client-side validations
+* Social share buttons (facebook, twitter, vkontakte, google plus, linkedIn, livejournal, etc)
 * Dashboard page with pretty tables and charts
 * User (admin) authentication with devise
 * Ready for Heroku deployment (additionaly need to add redis-to-go plugin)

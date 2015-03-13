@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   
   devise_for :users
   
-  resources :orders
+  resources :orders, only: [:create]
 
   constraints UserConstraint.new do
     get  'dashboard' => 'dashboard#index'
