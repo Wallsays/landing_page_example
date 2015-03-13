@@ -7,8 +7,12 @@ gem 'rails', '4.2.0'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18.1'
 
-# Heroku all platform features
-gem 'rails_12factor', group: :production
+group :production do
+  # Heroku all platform features
+  gem 'rails_12factor'
+  # Enable gzip compression on heroku, but don't compress images
+  gem 'heroku-deflater'
+end
 
 # Use better templating engine
 gem 'haml-rails', "~> 0.8"
@@ -30,6 +34,16 @@ gem 'simple_form', '~> 3.1.0'
 gem 'ahoy_matey', '~> 1.1.1'
 # The Rack Based AB testing framework 
 gem 'split', '~> 1.2.0', :require => 'split/dashboard'
+
+# Complete Ruby geocoding solution. 
+# gem 'geocoder', '~> 1.2.7'
+# Official Geokit Gem. Geokit gem provides geocoding and distance/heading calculations. 
+# gem 'geokit', '~> 1.9.0'
+
+# Search Engine Optimization (SEO) plugin for Ruby on Rails applications.
+# gem 'meta-tags', '~> 2.0.0'
+# Slugging and permalink plugins for ActiveRecord
+# gem 'friendly_id', '~> 5.1.0'
 
 # Create beautiful Javascript charts with one line of Ruby
 gem 'chartkick', '~> 1.3.2'
