@@ -3,9 +3,9 @@ source 'https://rubygems.org'
 # Heroku will use ruby 2.0.0 by default
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.0'
+gem 'rails', '4.2.6'
 # Use postgresql as the database for Active Record
-gem 'pg', '~> 0.18.1'
+gem 'pg', '~> 0.18.2'
 
 group :production do
   # Heroku all platform features
@@ -25,10 +25,13 @@ gem 'font-awesome-sass', '~> 4.3.0'
 # Flexible authentication solution for Rails with Warden
 gem 'devise', '~> 3.4.1'
 # Authorization
-gem 'cancan', '~> 1.6.10'
+# gem 'cancan', '~> 1.6.10'
+gem 'cancancan', '~> 1.12.0'
 
 # Forms made easy for Rails! It's tied to a simple DSL, with no opinion on markup.
 gem 'simple_form', '~> 3.1.0'
+# The TinyMCE editor with the Rails asset pipeline.
+gem 'tinymce-rails', '~> 4.2.3'
 
 # Track visits and events
 gem 'ahoy_matey', '~> 1.1.1'
@@ -70,6 +73,9 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
+
+# Provides a set of notifiers for sending notifications when errors occur in a Rack/Rails application. 
+gem 'exception_notification'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
